@@ -20,8 +20,4 @@ class UserSerializer(serializers.ModelSerializer):
 class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Roles
-        fields = ('user_id', 'role')
-
-    def create(self, validated_data):
-        role = super(RoleSerializer, self).create(validated_data)
-        pass
+        fields = ('user_id', 'store_manager', 'department_manager')

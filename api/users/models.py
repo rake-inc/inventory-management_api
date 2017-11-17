@@ -6,4 +6,5 @@ from django.contrib.auth.models import User
 
 class Roles(models.Model):
     user = models.ForeignKey(User)
-    role = models.CharField(max_length=24)
+    store_manager = models.BooleanField(default=True)
+    department_manager = models.BooleanField(default=False)
