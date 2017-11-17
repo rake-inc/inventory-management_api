@@ -13,7 +13,7 @@ class CreateUser(APIView):
 
     def _re_map_roles(self, serializer):
         result = {}
-        if len(serializer)
+        if len(serializer):
             return {'1': serializer}
 
     def post(self, request):
