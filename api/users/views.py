@@ -11,11 +11,6 @@ from rest_framework.status import HTTP_201_CREATED, HTTP_417_EXPECTATION_FAILED
 class CreateUser(APIView):
     permission_classes = (AllowAny,)
 
-    def _re_map_roles(self, serializer):
-        result = {}
-        if len(serializer):
-            return {'1': serializer}
-
     def post(self, request):
         user_serializer = UserSerializer(data=request.data)
         r_data = {}
@@ -25,13 +20,27 @@ class CreateUser(APIView):
             if user_serializer.is_valid():
                 user_serializer.save()
             _id = User.objects.only('id').get(username=request.data.get("username")).id
-            # print (_id)
+            print(_id)
             r_data.update(user_id=_id)
-            processed_role_data = self.remap(r_data)
+            processed_role_data = self._re_map_roles(r_data)
             role_serializer = RoleSerializer(data=processed_role_data)
             if role_serializer.is_valid():
                 role_serializer.save()
             return Response(user_serializer.data, status=HTTP_201_CREATED)
         except Exception as e:
-            print e
+            print(e)
         return Response(user_serializer.errors, status=HTTP_417_EXPECTATION_FAILED)
+
+    def _re_map_roles(self, serializer):
+        result = {}
+        if len(serializer):
+            if serializer['store_manager'] is 0:
+                result['store_manager'] = False
+            else:
+                result['store_manager'] = True
+            if serializer['department_manager'] is 0:
+                result['department_manager'] = False
+            else:
+                result['department_manager'] = True
+            result['user'] = serializer.get('user_id')
+        return result

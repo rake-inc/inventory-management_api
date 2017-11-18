@@ -20,4 +20,4 @@ class UserSerializer(serializers.ModelSerializer):
 class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Roles
-        fields = ('user_id', 'store_manager', 'department_manager')
+        fields = ('user', 'store_manager', 'department_manager')
