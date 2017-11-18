@@ -34,13 +34,7 @@ class CreateUser(APIView):
     def _re_map_roles(self, serializer):
         result = {}
         if len(serializer):
-            if serializer['store_manager'] is 0:
-                result['store_manager'] = False
-            else:
-                result['store_manager'] = True
-            if serializer['department_manager'] is 0:
-                result['department_manager'] = False
-            else:
-                result['department_manager'] = True
+            result['store_manager'] = bool(serializer.get('store_manager'))
+            result['department_manager'] = bool(serializer.get('department_manager'))
             result['user'] = serializer.get('user_id')
         return result
