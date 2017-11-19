@@ -1,3 +1,4 @@
+import logging
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from rest_framework.response import Response
@@ -12,15 +13,17 @@ class CreateUser(APIView):
     permission_classes = (AllowAny,)
 
     def post(self, request):
-        user_serializer = UserSerializer(data=request.data)
         r_data = {}
+        print (request.data)
         try:
+            user_serializer = UserSerializer(data=request.data)
             r_data.update(store_manager=request.data.pop("store_manager"))
             r_data.update(department_manager=request.data.pop("department_manager"))
+            print(r_data)
             if user_serializer.is_valid():
                 user_serializer.save()
             _id = User.objects.only('id').get(username=request.data.get("username")).id
-            print(_id)
+            logging.info("User created with ID %s" %_id)
             r_data.update(user_id=_id)
             processed_role_data = self._re_map_roles(r_data)
             role_serializer = RoleSerializer(data=processed_role_data)
@@ -28,8 +31,8 @@ class CreateUser(APIView):
                 role_serializer.save()
             return Response(user_serializer.data, status=HTTP_201_CREATED)
         except Exception as e:
-            print(e)
-        return Response(user_serializer.errors, status=HTTP_417_EXPECTATION_FAILED)
+            logging.error("Exception Reached %s" % e)
+        return Response(status=HTTP_417_EXPECTATION_FAILED)
 
     def _re_map_roles(self, serializer):
         result = {}
