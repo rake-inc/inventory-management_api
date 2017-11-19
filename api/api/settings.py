@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'inventory',
         'HOST': 'localhost',
         'USER': 'postgres',
-        'PASSWORD': 'prime123',
+        'PASSWORD': 'crunchbang',
         'PORT': '5432'
     }
 }
