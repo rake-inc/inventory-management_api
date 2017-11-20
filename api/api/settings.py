@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'product.apps.ProductConfig',
-    'rest_framework'
+    'rest_framework',
+    'reset_migrations'
 ]
 
 MIDDLEWARE = [
@@ -80,6 +81,12 @@ TEMPLATES = [
     },
 ]
 
+JWT_AUTH = {
+    'JWT_VERIFY': True,
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_VERIFY_EXPIRATION': False,
+}
+
 WSGI_APPLICATION = 'api.wsgi.application'
 
 # Database
@@ -91,7 +98,7 @@ DATABASES = {
         'NAME': 'inventory',
         'HOST': 'localhost',
         'USER': 'postgres',
-        'PASSWORD': 'prime123',
+        'PASSWORD': 'crunchbang',
         'PORT': '5432'
     }
 }

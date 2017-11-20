@@ -1,4 +1,4 @@
-from .models import Roles
+from .models import Roles, RoleApproval
 from rest_framework import serializers
 from django.contrib.auth.models import User
 
@@ -21,3 +21,8 @@ class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Roles
         fields = ('user', 'store_manager', 'department_manager')
+
+class ApproveRoleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RoleApproval
+        fields = ('user','approval')
