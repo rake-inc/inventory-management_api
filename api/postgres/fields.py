@@ -1,3 +1,7 @@
+"""
+Hardcoded field values for ORM
+"""
+
 USERNAME = 'username'
 USER_ID = 'user_id'
 USER_PK = 'id'

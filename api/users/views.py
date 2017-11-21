@@ -15,10 +15,21 @@ class CreateUser(APIView):
     permission_classes = (AllowAny,)
 
     def _add_user_id(self, user_id, role_dict):
+        """
+        Private access specifier to add user id for the creation of role entity model
+        :param user_id:
+        :param role_dict:
+        :return:
+        """
         role_dict[fields.USER] = user_id
         return role_dict
 
     def post(self, request):
+        """
+        POST method for the creation of auth_user and users_role model
+        :param request:
+        :return:
+        """
         try:
             user_dict, role_dict = mapper.re_map_user_roles(request.data)
             user_serializer = UserSerializer(data=user_dict)
@@ -41,6 +52,11 @@ class RoleDetails(APIView):
     authentication_classes = [JSONWebTokenAuthentication]
 
     def get(self, request):
+        """
+        GET method for querying the users_roles model based of url query
+        :param request:
+        :return:
+        """
         try:
             param_dict = mapper.re_map_role_params(request.query_params)
             query = User.objects.only(fields.USER_PK).get(**param_dict).id
