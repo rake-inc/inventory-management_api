@@ -53,7 +53,7 @@ class RoleDetails(APIView):
 
     def get(self, request):
         """
-        GET method for querying the users_roles model based of url query
+        GET method for querying the users_roles model based on url query
         :param request:
         :return:
         """
