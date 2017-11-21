@@ -26,6 +26,11 @@ class UserSerializer(serializers.ModelSerializer):
         fields = USER_SERIALIZER_FIELDS
 
     def create(self, validated_data):
+        """
+        Creates auth_user object with password validation
+        :param validated_data:
+        :return:
+        """
         user = super(UserSerializer, self).create(validated_data)
         user.set_password(validated_data[fields.USER_PASSWORD])
         user.save()
