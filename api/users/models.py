@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 
 class Role(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
-    store_manager = models.BooleanField(default=True)
-    department_manager = models.BooleanField(default=False)
+    is_store_manager = models.BooleanField(default=True)
+    is_department_manager = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.user)
@@ -15,7 +15,7 @@ class Role(models.Model):
 
 class RoleApproval(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    approval = models.BooleanField(default=False)
+    is_approved = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.user)

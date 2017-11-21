@@ -1,6 +1,21 @@
 from .models import Role
+from postgres import fields
 from rest_framework import serializers
 from django.contrib.auth.models import User
+
+USER_SERIALIZER_FIELDS = (
+    fields.USERNAME,
+    fields.FIRST_NAME,
+    fields.LAST_NAME,
+    fields.USER_PASSWORD,
+    fields.USER_EMAIL,
+)
+
+ROLE_SERIALIZER_FIELDS = (
+    fields.USER,
+    fields.IS_STORE_MANAGER,
+    fields.IS_DEPARTMENT_MANAGER
+)
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -8,11 +23,11 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'password', 'email')
+        fields = USER_SERIALIZER_FIELDS
 
     def create(self, validated_data):
         user = super(UserSerializer, self).create(validated_data)
-        user.set_password(validated_data['password'])
+        user.set_password(validated_data[fields.USER_PASSWORD])
         user.save()
         return user
 
@@ -20,4 +35,4 @@ class UserSerializer(serializers.ModelSerializer):
 class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Role
-        fields = ('user', 'store_manager', 'department_manager')
+        fields = ROLE_SERIALIZER_FIELDS

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
+from postgres import db_config
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -93,12 +93,12 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'inventory',
-        'HOST': 'localhost',
-        'USER': 'postgres',
-        'PASSWORD': 'prime123',
-        'PORT': '5432'
+        'ENGINE': db_config.ENGINE,
+        'NAME': db_config.DB_NAME,
+        'HOST': db_config.HOST,
+        'USER': db_config.USER,
+        'PASSWORD': db_config.PASSWORD,
+        'PORT': db_config.PORT
     }
 }
 

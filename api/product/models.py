@@ -1,8 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
-
 class ProductDetails(models.Model):
     name = models.CharField(max_length=64)
     vendor = models.CharField(max_length=64)

@@ -1,5 +1,6 @@
 import logging
 from utils import mapper
+from postgres import fields
 from .models import Role, RoleApproval
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
@@ -14,7 +15,7 @@ class CreateUser(APIView):
     permission_classes = (AllowAny,)
 
     def _add_user_id(self, user_id, role_dict):
-        role_dict["user"] = user_id
+        role_dict[fields.USER] = user_id
         return role_dict
 
     def post(self, request):
@@ -23,13 +24,13 @@ class CreateUser(APIView):
             user_serializer = UserSerializer(data=user_dict)
             if user_serializer.is_valid():
                 user_serializer.save()
-            user_id = User.objects.only('id').get(username=request.data.get("username")).id
+            user_id = User.objects.only(fields.USER_PK).get(username=request.data.get(fields.USERNAME)).id
             processed_role_data = self._add_user_id(user_id, role_dict)
             role_serializer = RoleSerializer(data=processed_role_data)
             if role_serializer.is_valid():
                 role_serializer.save()
                 user_obj = User.objects.get(pk=user_id)
-                RoleApproval.objects.create(user=user_obj, approval=False)
+                RoleApproval.objects.create(user=user_obj)
             return Response(user_serializer.data, status=HTTP_201_CREATED)
         except Exception as e:
             logging.error("Exception Reached %s" % e)
@@ -42,11 +43,12 @@ class RoleDetails(APIView):
     def get(self, request):
         try:
             param_dict = mapper.re_map_role_params(request.query_params)
-            query = User.objects.only('id').get(**param_dict).id
+            query = User.objects.only(fields.USER_PK).get(**param_dict).id
+            username = User.objects.only(fields.USERNAME).get(id=query).username
             data_obj = Role.objects.filter(user_id=query)
             role_serializer = RoleSerializer(data_obj, many=True)
-            print role_serializer.data
-            return Response(role_serializer.data, status=HTTP_200_OK)
+            response_data = mapper.re_map_role_response(role_serializer.data, username)
+            return Response(response_data, status=HTTP_200_OK)
         except Exception as e:
             logging.error("Exception Reached %s " % e)
             message = {
