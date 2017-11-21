@@ -11,3 +11,6 @@ class ProductDetails(models.Model):
     batch_date = models.DateField(auto_now=False, auto_now_add=False)
     quantity = models.IntegerField()
     status = models.CharField(max_length=16)
+
+    def __str__(self):
+        return self.pk + " " + self.name

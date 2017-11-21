@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'product.apps.ProductConfig',
     'rest_framework',
-    'reset_migrations'
 ]
 
 MIDDLEWARE = [
@@ -98,7 +97,7 @@ DATABASES = {
         'NAME': 'inventory',
         'HOST': 'localhost',
         'USER': 'postgres',
-        'PASSWORD': 'crunchbang',
+        'PASSWORD': 'prime123',
         'PORT': '5432'
     }
 }
