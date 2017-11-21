@@ -1,15 +1,12 @@
 import logging
 
 
-def re_map_user_roles(serializers_dict):
+def re_map_user_roles(request_data):
     try:
-        result = {}
-        for key in serializers_dict.keys():
-            result[key] = serializers_dict.get(key)
-        result['user'] = serializers_dict.get('user_id')
-        result.pop("user_id")
-        logging.info("Serializer remapped")
-        return result
+        role_data = {}
+        role_data.update(store_manager=request_data.pop("store_manager"))
+        role_data.update(department_manager=request_data.pop("department_manager"))
+        return request_data, role_data
     except Exception as e:
         logging.error("EXCEPTION REACHED %s" % e)
         return {}
