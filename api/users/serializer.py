@@ -3,19 +3,19 @@ from postgres import fields
 from rest_framework import serializers
 from django.contrib.auth.models import User
 
-USER_SERIALIZER_FIELDS = (
+USER_SERIALIZER_FIELDS = [
     fields.USERNAME,
     fields.FIRST_NAME,
     fields.LAST_NAME,
     fields.USER_PASSWORD,
     fields.USER_EMAIL,
-)
+]
 
-ROLE_SERIALIZER_FIELDS = (
+ROLE_SERIALIZER_FIELDS = [
     fields.USER,
     fields.IS_STORE_MANAGER,
     fields.IS_DEPARTMENT_MANAGER
-)
+]
 
 
 class UserSerializer(serializers.ModelSerializer):

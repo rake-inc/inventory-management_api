@@ -14,7 +14,7 @@ def re_map_user_roles(request_data):
         role_data.update(is_department_manager=request_data.pop(fields.IS_DEPARTMENT_MANAGER))
         return request_data, role_data
     except Exception as e:
-        logging.error("EXCEPTION REACHED in re_map_user_roles %s" % e)
+        logging.error("MAPPER EXCEPTION REACHED in re_map_user_roles %s" % e)
         return {}
 
 
@@ -35,7 +35,7 @@ def re_map_role_params(query):
             logging.info("Query remapped successfully")
         return result
     except Exception as e:
-        logging.error("EXCEPTION REACHED %s" % e)
+        logging.error("MAPPER EXCEPTION REACHED %s" % e)
         return {}
 
 
@@ -52,5 +52,20 @@ def re_map_role_response(serializer_dict, username):
         response[fields.USERNAME] = username
         return response
     except Exception as e:
-        logging.error("EXCEPTION REACHED %s" % e)
+        logging.error("MAPPER EXCEPTION REACHED %s" % e)
+        return {}
+
+
+def re_map_update_query(query_dict):
+    """
+    remaps pk and query dictionary
+    :param query_dict:
+    :return:
+    """
+    try:
+        pk = dict()
+        pk[fields.PRODUCT_PK] = query_dict.pop(fields.PRODUCT_PK)
+        return pk, query_dict
+    except Exception as e:
+        logging.error("MAPPER EXCEPTION REACHED %s" % e)
         return {}

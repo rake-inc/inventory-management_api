@@ -1,5 +1,5 @@
 """
-Hardcoded field values for ORM
+Hardcoded auth_user field values for ORM
 """
 
 USERNAME = 'username'
@@ -13,3 +13,21 @@ FIRST_NAME = 'first_name'
 LAST_NAME = 'last_name'
 USER_PASSWORD = 'password'
 USER_EMAIL = 'email'
+
+"""
+Hardcoded product_productdetails field values for ORM
+"""
+PRODUCT_PK = 'id'
+PRODUCT_NAME = 'name'
+PRODUCT_PRICE = 'price'
+PRODUCT_VENDOR = 'vendor'
+PRODUCT_BATCH_NUMBER = 'batch_num'
+PRODUCT_QUANTITY = 'QUANTITY'
+PRODUCT_STATUS = 'status'
+PRODUCT_BATCH_DATE = 'batch_date'
+
+"""
+Pagination
+"""
+START = 'start'
+END = 'end'
