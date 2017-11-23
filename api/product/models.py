@@ -8,7 +8,7 @@ class ProductDetails(models.Model):
     price = models.IntegerField()
     batch_date = models.DateField(auto_now=False, auto_now_add=False)
     quantity = models.IntegerField()
-    status = models.CharField(max_length=16)
+    status = models.CharField(max_length=64)
 
     def __str__(self):
-        return self.pk + " " + self.name
+        return str(self.pk) + " " + self.name

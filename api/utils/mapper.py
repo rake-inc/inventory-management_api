@@ -1,5 +1,8 @@
 import logging
+from datetime import datetime
 from postgres import fields
+
+DATE_FORMAT = '%d-%m-%Y'
 
 
 def re_map_user_roles(request_data):
@@ -26,8 +29,12 @@ def re_map_role_params(query):
     """
     try:
         result = {}
-        query_dict = dict(query)
+        if type(query) != dict:
+            query_dict = dict(query)
+        else:
+            query_dict = query
         for key in query_dict.keys():
+            print result
             if type(query_dict.get(key)) == list:
                 result[key] = query_dict.get(key).pop()
             else:
@@ -64,7 +71,7 @@ def re_map_update_query(query_dict):
     """
     try:
         pk = dict()
-        pk[fields.PRODUCT_PK] = query_dict.pop(fields.PRODUCT_PK)
+        pk[fields.PRIMARY_KEY] = query_dict.pop(fields.PRIMARY_KEY)
         return pk, query_dict
     except Exception as e:
         logging.error("MAPPER EXCEPTION REACHED %s" % e)

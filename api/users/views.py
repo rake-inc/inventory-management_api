@@ -6,8 +6,8 @@ from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
-from .serializer import UserSerializer, RoleSerializer
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
+from .serializer import UserSerializer, RoleSerializer, RoleApprovalSerializer
 from rest_framework.status import HTTP_200_OK, HTTP_201_CREATED, HTTP_417_EXPECTATION_FAILED, HTTP_400_BAD_REQUEST
 
 
@@ -71,3 +71,33 @@ class RoleDetails(APIView):
                 "message": "User not found"
             }
             return Response(message, status=HTTP_400_BAD_REQUEST)
+
+
+class RoleApprovalDetail(APIView):
+    authentication_classes = [JSONWebTokenAuthentication]
+
+    def _pk_to_int(self, pk):
+        """
+        Private access specifier to convert string or unicode to int
+        :param pk:
+        :return:
+        """
+        return int(pk)
+
+    def get(self, request, pk):
+        """
+        GET method requested with a user id in the url to get the approval status of each user.
+        :param request:
+        :param pk:
+        :return:
+        """
+        try:
+            key = self._pk_to_int(pk)
+            query = RoleApproval.objects.filter(user_id=key)
+            print query
+            role_approval_serializer = RoleApprovalSerializer(query, many=True)
+            print role_approval_serializer.data
+            return Response(role_approval_serializer.data, status=HTTP_200_OK)
+        except Exception as e:
+            logging.error("EXCEPTION REACHED %s " % e)
+            return Response(status=HTTP_400_BAD_REQUEST)
