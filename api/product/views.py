@@ -1,7 +1,7 @@
 import logging
 from utils import mapper
 from postgres import fields
-from .models import ProductDetails
+from .models import ProductDetail
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializer import ProductSerializer, ProductDisplaySerializer
@@ -18,7 +18,7 @@ class ProductDetail(APIView):
         :param query:
         :return:
         """
-        paginated_obj = ProductDetails.objects.all().order_by(fields.PRODUCT_PK)[
+        paginated_obj = ProductDetail.objects.all().order_by(fields.PRODUCT_PK)[
                         int(query.get(fields.START)):int(query.get(fields.END))]
         return paginated_obj
 
@@ -37,7 +37,7 @@ class ProductDetail(APIView):
         Returns the total number of product entities
         :return:
         """
-        return ProductDetails.objects.count()
+        return ProductDetail.objects.count()
 
     def get(self, request):
         """
@@ -85,7 +85,7 @@ class ProductDetail(APIView):
         try:
             pk_dict, query = mapper.re_map_update_query(request.data)
             pk = self._str_to_int(pk_dict)
-            ProductDetails.objects.filter(**pk).update(**query)
+            ProductDetail.objects.filter(**pk).update(**query)
             return Response(status=HTTP_200_OK)
         except Exception as e:
             logging.error("ProductDetail PUT EXCEPTION REACHED %s" % e)
@@ -99,7 +99,7 @@ class ProductDetail(APIView):
         """
         try:
             remapped_query = mapper.re_map_role_params(request.query_params)
-            ProductDetails.objects.filter(**remapped_query).delete()
+            ProductDetail.objects.filter(**remapped_query).delete()
             return Response(status=HTTP_200_OK)
         except Exception as e:
             logging.error("ProductDetail DELETE EXCEPTION REACHED %s" % e)

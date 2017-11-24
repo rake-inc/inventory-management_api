@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class ProductDetails(models.Model):
+class ProductDetail(models.Model):
     name = models.CharField(max_length=64)
     vendor = models.CharField(max_length=64)
     batch_num = models.IntegerField()
@@ -11,4 +11,4 @@ class ProductDetails(models.Model):
     status = models.CharField(max_length=64)
 
     def __str__(self):
-        return str(self.pk) + " " + self.name
+        return str(self.pk) + " " + str(self.name)

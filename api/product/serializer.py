@@ -1,4 +1,4 @@
-from .models import ProductDetails
+from .models import ProductDetail
 from postgres import fields
 from rest_framework import serializers
 
@@ -17,11 +17,11 @@ PRODUCT_DISPLAY_SERIALIZER_FIELDS = [fields.PRODUCT_PK] + PRODUCT_SERIALIZER_FIE
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ProductDetails
+        model = ProductDetail
         fields = PRODUCT_SERIALIZER_FIELDS
 
 
 class ProductDisplaySerializer(serializers.ModelSerializer):
     class Meta:
-        model = ProductDetails
+        model = ProductDetail
         fields = PRODUCT_DISPLAY_SERIALIZER_FIELDS
