@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
+from django.contrib import admin
 from postgres import db_config
 import os
 
@@ -39,6 +40,10 @@ INSTALLED_APPS = [
     'product.apps.ProductConfig',
     'rest_framework',
 ]
+
+admin.site.site_header = 'Inventory Management'
+admin.site.site_title = 'Roles and Product details administration'
+admin.site.index_title = 'Roles and Product details administration'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
