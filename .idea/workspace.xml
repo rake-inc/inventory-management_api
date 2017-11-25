@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23d61f3f-704b-4f52-a5f5-346577b0eb9d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inventory-management_api.iml" afterPath="$PROJECT_DIR$/.idea/inventory-management_api.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/api/settings.py" afterPath="$PROJECT_DIR$/api/api/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/api/urls.py" afterPath="$PROJECT_DIR$/api/api/urls.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,14 +18,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/api/settings.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/api/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding>
-                <element signature="e#304#336#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="234">
+              <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -48,6 +45,7 @@
         <option value="$PROJECT_DIR$/api/product/models.py" />
         <option value="$PROJECT_DIR$/api/users/admin.py" />
         <option value="$PROJECT_DIR$/api/api/settings.py" />
+        <option value="$PROJECT_DIR$/api/api/urls.py" />
       </list>
     </option>
   </component>
@@ -504,6 +502,14 @@
       <option name="presentableId" value="Default" />
       <updated>1511521256964</updated>
     </task>
+    <task id="LOCAL-00001" summary="Admin changes">
+      <created>1511601638836</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1511601638836</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -512,11 +518,11 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22390439" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32686085" sideWeight="0.5059761" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5091633" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32847896" sideWeight="0.49402392" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32847896" sideWeight="0.49083665" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6682848" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -537,6 +543,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Admin changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -727,13 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/api/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/product/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -818,11 +821,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/api/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="-147">
           <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
-            <element signature="e#304#336#0" expanded="true" />
+            <marker date="1511601614049" expanded="true" signature="0:303" ph="&quot;&quot;&quot;Django settings for api project....&quot;&quot;&quot;" />
+            <marker date="1511601614049" expanded="true" signature="304:377" ph="import ..." />
+            <marker date="1511601614049" expanded="true" signature="523:726" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="941:1214" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="1415:1812" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="1833:2221" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="1878:1970" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="2026:2213" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="2264:2733" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="2270:2730" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="2407:2723" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="2443:2712" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="2748:2840" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="2886:2961" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="2976:3206" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="2993:3204" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="3209:3310" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="3340:3734" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="3346:3443" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="3451:3538" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="3546:3634" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="3642:3731" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="3737:3813" ph="..." />
+            <marker date="1511601614049" expanded="true" signature="3908:4009" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/api/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>

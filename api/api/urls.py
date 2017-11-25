@@ -19,7 +19,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^', admin.site.urls),
     url(r'^api-token-auth/', obtain_jwt_token),
     url(r'^users/', include('users.urls')),
     url(r'^product/', include('product.urls')),
