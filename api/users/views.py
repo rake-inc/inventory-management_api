@@ -94,9 +94,7 @@ class RoleApprovalDetail(APIView):
         try:
             key = self._pk_to_int(pk)
             query = RoleApproval.objects.filter(user_id=key)
-            print query
             role_approval_serializer = RoleApprovalSerializer(query, many=True)
-            print role_approval_serializer.data
             return Response(role_approval_serializer.data, status=HTTP_200_OK)
         except Exception as e:
             logging.error("EXCEPTION REACHED %s " % e)

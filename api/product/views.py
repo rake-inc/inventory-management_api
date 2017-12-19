@@ -9,7 +9,7 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from rest_framework.status import HTTP_201_CREATED, HTTP_417_EXPECTATION_FAILED, HTTP_200_OK, HTTP_400_BAD_REQUEST
 
 
-class ProductDetail(APIView):
+class ProductDetailAPI(APIView):
     authentication_classes = [JSONWebTokenAuthentication]
 
     def _paginated_model_instance(self, query):
